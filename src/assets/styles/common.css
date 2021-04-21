@@ -1,0 +1,23 @@
+html {
+	background-color: #efefef;
+	font-size: .14rem;
+}
+
+html,
+body,
+#app,
+.container {
+	height: 100%;
+}
+
+.container {
+	display: flex;
+	flex-direction: column;
+}
+
+.scroll-wrapper {
+	display: flex;
+	flex: 1;
+	flex-direction: column;
+	overflow: hidden;
+}
