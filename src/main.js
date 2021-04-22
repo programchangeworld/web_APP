@@ -8,6 +8,7 @@ import './assets/styles/common.css'
 import './assets/styles/resets.css'
 import './assets/styles/border.css'
 import './assets/styles/iconfont.css'
+import './utils/filters'
 Vue.config.productionTip = false
 
 new Vue({
