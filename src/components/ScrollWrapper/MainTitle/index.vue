@@ -1,17 +1,25 @@
 <template>
   <div class="main-title">
     <h1>{{data.field_name}}</h1>
-    <router-link :to="{path: '/list', query:{field:data.field}}">
+    <div class="link-wrap" @click="onRouterTo(data.field)">
       <span>更多课程<i class="iconfont icon-arrow-right"></i></span>
-    </router-link>
+    </div>
   </div>
 </template>
 
 <script>
+import { mapMutations } from 'vuex'
 export default {
   name: 'MainTitle',
   props: {
     data: Object
+  },
+  methods: {
+    ...mapMutations(['selectField']),
+    onRouterTo (field) {
+      this.selectField(field)
+      this.$router.push('./list')
+    }
   }
 }
 </script>
@@ -25,7 +33,7 @@ export default {
   padding: 0 .1rem;
   box-sizing: border-box;
   line-height: .44rem;
-  a{
+  .link-wrap{
     margin-top: -.05rem;
   }
   h1{

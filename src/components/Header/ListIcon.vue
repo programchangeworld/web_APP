@@ -1,12 +1,13 @@
 <template>
   <div class="list-icon">
-    <router-link to="List">
+    <div class="link-wrap" @click="onRouterTo('all')">
       <i class="iconfont icon-cc-list" v-show="listIconShow"></i>
-    </router-link>
+    </div>
   </div>
 </template>
 
 <script>
+import { mapMutations } from 'vuex'
 export default {
   props: {
     listIconShow: {
@@ -16,19 +17,26 @@ export default {
       }
     }
   },
-  name: 'HeaderListIcon'
+  name: 'HeaderListIcon',
+  methods: {
+    ...mapMutations(['selectField']),
+    onRouterTo (field) {
+      this.selectField(field)
+      this.$router.push('./list')
+    }
+  }
 }
 </script>
 
 <style lang="scss" scoped>
-  .list-icon{
-    display: flex;
-    width: .44rem;
-    height: .44rem;
-    align-items: center;
-    align-content: center;
-    .iconfont{
-      font-size: .2rem;
-    }
+.list-icon {
+  display: flex;
+  width: 0.44rem;
+  height: 0.44rem;
+  align-items: center;
+  align-content: center;
+  .iconfont {
+    font-size: 0.2rem;
   }
+}
 </style>
